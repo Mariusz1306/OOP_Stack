@@ -1,9 +1,8 @@
-extern int stacksize;
 
-struct stack_handle
-{
-int top; /* pierwsze wolne miejsce na stosie */
-int *dane;
+struct stack_handle{
+    int stack_number;
+    int top; /* pierwsze wolne miejsce na stosie */
+    int *dane;
 };
 
 void push(struct stack_handle* s,int a);
