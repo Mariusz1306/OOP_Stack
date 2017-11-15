@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "stack.h"
 
 #define initSTACKSIZE 5
@@ -20,11 +21,10 @@ void init(struct stack_handle* s){
 	s->dane  = calloc(init_stacksize, sizeof(int));
 }
 
-void finalize(struct stack_handle* s){
+void destroy(struct stack_handle* s){
     --number_of_stacks;
 	ptr_stacksizes = realloc(ptr_stacksizes, number_of_stacks * sizeof(int));
     free(s->dane);
-    free(s);
 }
 
 void clear(struct stack_handle* s){
@@ -45,5 +45,9 @@ void push(struct stack_handle* s,int a){
 int pop(struct stack_handle* s){
 	assert(s->top>0);
 	return s->dane[--s->top];
+}
+
+int isEmpty(struct stack_handle* s){
+	return s->top==0 ? true : false;
 }
 
