@@ -1,3 +1,4 @@
+#include <stdbool.h>
 
 struct stack_handle{
     int stack_number;
@@ -9,5 +10,6 @@ void push(struct stack_handle* s,int a);
 int pop(struct stack_handle* s);
 void clear(struct stack_handle* s);
 void init(struct stack_handle* s);
-void finalize(struct stack_handle* s);
+void destroy(struct stack_handle* s);
+bool isEmpty(struct stack_handle* s);
 
